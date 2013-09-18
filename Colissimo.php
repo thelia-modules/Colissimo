@@ -63,7 +63,7 @@ class Colissimo extends BaseModule implements DeliveryModuleInterface
      */
     public function getPostage(Country $country)
     {
-        // TODO: Implement calculate() method.
+        // TODO: Implement getPostage() method.
         return 2;
     }
 
