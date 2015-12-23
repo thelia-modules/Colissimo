@@ -49,33 +49,33 @@
                                 </div>
                                 <div class="panel-body">
 
-                                        <table>
+                                    <table>
 
-                                            <tr>
-                                                <td>
-                                                    <label for="nochange">{intl d='colissimo.ai' l="Do not change"}</label>&nbsp;
-                                                </td>
-                                                <td>
-                                                    <input type="radio"  id="nochange" name="{$name}" value="nochange"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label for="processing">{intl d='colissimo.ai' l="Processing"}</label>&nbsp;
-                                                </td>
-                                                <td>
-                                                    <input type="radio"  id="processing" name="{$name}" value="processing"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label for="sent">{intl d='colissimo.ai' l="Sent"}*</label>&nbsp;
-                                                </td>
-                                                <td>
-                                                    <input type="radio"  id="sent" name="{$name}" value="sent"/>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <tr>
+                                            <td>
+                                                <label for="nochange">{intl d='colissimo.ai' l="Do not change"}</label>&nbsp;
+                                            </td>
+                                            <td>
+                                                <input type="radio"  id="nochange" name="{$name}" value="nochange"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="processing">{intl d='colissimo.ai' l="Processing"}</label>&nbsp;
+                                            </td>
+                                            <td>
+                                                <input type="radio"  id="processing" name="{$name}" value="processing"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="sent">{intl d='colissimo.ai' l="Sent"}*</label>&nbsp;
+                                            </td>
+                                            <td>
+                                                <input type="radio"  id="sent" name="{$name}" value="sent"/>
+                                            </td>
+                                        </tr>
+                                    </table>
                                     {/form_field}
                                     <span class="p">{intl d='colissimo.ai' l="*If you choose this option, the exported orders would not be available on this page anymore"}</span>
                                 </div>
@@ -84,6 +84,9 @@
                                 <thead>
                                 <th class="object-title">
                                     {intl d='colissimo.ai' l="REF"}
+                                </th>
+                                <th class="object-title">
+                                    {intl d='colissimo.ai' l="Customer"}
                                 </th>
                                 <th class="object-title">
                                     {intl d='colissimo.ai' l="Date"}
@@ -104,6 +107,11 @@
                                             <label for="{$label_attr.for}">
                                                 {$label}
                                             </label>
+                                        </td>
+                                        <td>
+                                            {loop type='customer' name='pickup.customer' id=$CUSTOMER}
+                                                {$LASTNAME} {$FIRSTNAME}
+                                            {/loop}
                                         </td>
                                         <td>
                                             {$CREATE_DATE|date_format}
