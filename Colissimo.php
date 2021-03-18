@@ -155,7 +155,11 @@ class Colissimo extends AbstractDeliveryModuleWithState
             $this->getAreaForCountry($country, $state)->getId(),
             $cartWeight
         );
-
+		if($postage && $this->getRequest()->getSession()->getCurrency()->getRate()) $postage *= $this->getRequest()->getSession()->getCurrency()->getRate();
+		$currencyDecimals = array('JPY' => 0, 'TWD' => 0);
+        if ($this->getRequest()->getSession()->getCurrency()->getCode() && array_key_exists($this->getRequest()->getSession()->getCurrency()->getCode(), $currencyDecimals)) {
+			$postage = round($postage,0);
+		}
         return $postage;
     }
 
